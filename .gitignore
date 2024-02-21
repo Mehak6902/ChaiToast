@@ -1,3 +1,5 @@
+#Vscode
+.vscode
 # SECRET_KEY STORED in .env file
 .env
 
