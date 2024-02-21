@@ -1,52 +1,86 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar</a>
-		<button
-			class="navbar-toggler"
-			type="button"
-			data-bs-toggle="collapse"
-			data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent"
-			aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a
-						class="nav-link dropdown-toggle"
-						href="#"
-						role="button"
-						data-bs-toggle="dropdown"
-						aria-expanded="false">
-						Dropdown
-					</a>
-					<ul class="dropdown-menu">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><hr class="dropdown-divider" /></li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link disabled" aria-disabled="true">Disabled</a>
-				</li>
-			</ul>
-			<form class="d-flex" role="search">
-				<input
-					class="form-control me-2"
-					type="search"
-					placeholder="Search"
-					aria-label="Search" />
-				<button class="btn btn-outline-success" type="submit">Search</button>
-			</form>
-		</div>
-	</div>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Navbar styling */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: white;
+            margin-right: 10px; /* Adjust margin between navbar links */
+        }
+
+        .navbar-nav .nav-link.active {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">CHAITOAST</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/" id="home-link">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/about" id="about-link">ABOUT US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/contact" id="contact-link">CONTACT US</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <!-- Your user authentication links -->
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/logoutuser">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">{{ user.username }}</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/loginuser">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/signupuser">SIGNUP</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // JavaScript to set active class based on current URL
+        document.addEventListener("DOMContentLoaded", function() {
+            let url = window.location.href;
+            let homeLink = document.getElementById("home-link");
+            let aboutLink = document.getElementById("about-link");
+            let contactLink = document.getElementById("contact-link");
+
+            if (url.endsWith("/user/")) {
+                homeLink.classList.add("active");
+            } else if (url.endsWith("/user/about")) {
+                aboutLink.classList.add("active");
+            } else if (url.endsWith("/user/contact")) {
+                contactLink.classList.add("active");
+            }
+        });
+    </script>
+</body>
+</html>
