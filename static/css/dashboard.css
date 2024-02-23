@@ -1,0 +1,16 @@
+#dashboard {
+  position: relative;
+  margin: 4rem 1rem 1rem 1rem;
+  border-radius: 10px;
+}
+
+.total_price {
+  margin-right: 1rem;
+}
+.addbtn,.removebtn {
+  width: 5rem;
+}
+
+.card-body {
+  height: 2em;
+}

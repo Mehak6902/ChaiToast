@@ -1,0 +1,35 @@
+{% extends 'utils/base.html' %}
+{% load static %}
+{% block body %}
+  <!-- Header Start -->
+  {% include 'utils/navbar.html' %}
+  <!-- Header End -->
+
+  <!-- Hero Start -->
+  <section class="hero position-relative">
+    <div class="hero_overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy" class="hero_video">
+      <source src="{% static 'images/1-HeroChai-vid.mp4' %}" type="video/mp4" />
+    </video>
+
+    <div class="h-100 container-custom position-relative z-1">
+      <div class="d-flex h-100 align-items-center">
+        <div class="text-white">
+          <h1>ChaiToast: made with love</h1>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias nihil Tempora suscipit rerum quaerat sed culpa, a iste?</p>
+          <a href="/user/signupuser" class="mt-2 btn btn-outline-light btn-lg" role="button">Join now</a>
+        </div>
+      </div>
+    </div>
+    <a href="#scroll-down" class="hero_scroll-btn position-absolute bottom-0 start-50 translate-middle-x">Explore <i class="bi bi-arrow-down"></i></a>
+  </section>
+  <!-- Hero End -->
+  <section id="scroll-down">
+    <div>
+      <img src="{% static 'images/1-HeroChai.jpeg' %}" alt="" class="container " style="width: 50%;">
+    </div>
+  </section>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{% static 'css/landing.css' %}" />
+{% endblock %}
