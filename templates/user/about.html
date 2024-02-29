@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #0f2027, #203a43,  #2c5364);
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1 {
+            color: white;
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: slideInDown 1s ease-out;
+        }
+
+        .description {
+            text-align: justify;
+            color: white;
+            font-size: 20px;
+            line-height: 1.6;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .highlight {
+            color: #ff4500;
+            font-weight: bold;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-top: 50px;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .about-image {
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote {
+            font-style: italic;
+            text-align: center;
+            margin-top: 30px;
+            animation: slideInUp 1s ease-out;
+            color: white;
+        }
+
+        /* Keyframe animations */
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <div class="description">
+            <p>Welcome to ChaiToast! 😋 At ChaiToast, we're passionate about bringing you the authentic flavors of India right to your doorstep. From our handcrafted masala chai to our mouthwatering samosas, each of our products is carefully crafted to deliver a taste sensation like no other.</p>
+            <p>Our journey began with a simple mission: to share the warmth and richness of Indian cuisine with the world. Today, we're proud to serve customers across the globe, providing them with a taste of India's vibrant culture and culinary heritage.</p>
+            <p>But ChaiToast is more than just a food company – we're a community. We believe in fostering connections and bringing people together through the joy of food. Whether you're sharing a cup of chai with friends or savoring a crispy pakora on your own, we hope our products bring a smile to your face and warmth to your heart.</p>
+        </div>
+
+        <div class="image-container">
+            <img src="https://i.pinimg.com/736x/11/a6/ce/11a6ce7c7ffefe37732ded4eb5e40c96.jpg" alt="About Us" class="about-image">
+        </div>
+
+        <div class="quote">
+            <p>"Life is like a cup of tea to be filled to the brim and enjoyed with friends."</p>
+            <p>– BY CHAITOAST | 😋❤️</p>
+        </div>
+    </div>
+</body>
+</html>
