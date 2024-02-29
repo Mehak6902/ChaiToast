@@ -5,7 +5,7 @@
 {% endblock %}
 {% block body %}
   {% include 'utils/navbar.html' %}
-  {% comment %} <div id="dashboard" class="">
+  <div id="dashboard" class="">
     <div class="d-flex flex-column gap-1 p-1">
       <div class="productcard d-flex justify-content-between align-items-center container border border-warning rounded bg-body-secondary p-2">
         <div id="product_info" class="d-flex gap-2 align-items-center">
@@ -28,8 +28,28 @@
       <button type="submit" class="btn btn-warning"><i class="bi bi-arrow-clockwise text-white"></i></button>
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+  </div>
+  {% comment %} <div class="row justify-content-center text-center">
+    <div class="col-md-8">
+      <h1 class="mt-5">HERE ARE WHAT WE OFFER</h1>
+      <div class="row">
+        {% for product in products %}
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" />
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text">Price: Rs.{{ product.price }}</p>
+                <a href="#" class="btn btn-primary">ORDER NOW</a>
+                <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
   </div> {% endcomment %}
-  
 
   <script>
     function increaseQuantity(btn) {
