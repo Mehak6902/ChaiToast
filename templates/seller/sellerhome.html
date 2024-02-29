@@ -1,7 +1,50 @@
-{% extends "utils/base.html" %} 
-{% block title %}Seller{% endblock %}
+{% extends 'utils/base.html' %}
+{% load static %}
+{% block title %}
+  Seller |
+{% endblock %}
 {% block body %}
-    {% include "utils/navbar.html" %}
-    <h1 class="bg-danger">This is Sellers home page :D</h1>
-    <p class="alert alert-info">This is what Sellers will see</p>
+  {% include 'utils/navbar.html' %} 
+   <div id="dashboard" class="">
+    <div class="d-flex flex-column gap-1 p-1">
+      <div class="productcard d-flex justify-content-between align-items-center container border border-warning rounded bg-body-secondary p-2">
+        
+        
+        <div id="product_info" class="d-flex gap-2 align-items-center">
+          <h5 class="text-center m-0">Rs.</h5>
+          <h6 class="text-center m-0 bg-body-tertiary border rounded p-2">Price</h6>
+          <h4 class="text-center m-0">Chai</h4>
+        </div>
+
+        <div class="d-flex gap-2 align-items-center">
+          <div class="total_price d-flex align-items-center">
+            <h4 class="m-0">Total:</h4>
+            <h5 class="text-center m-0 bg-body-tertiary border rounded p-2">Price</h5>
+          </div>
+          <button type="button" class="removebtn btn btn-danger">-</button>
+          <button type="button" class="addbtn btn btn-success">+</button>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center gap-2 mt-2">
+      <button type="submit" class="btn btn-warning"><i class="bi bi-arrow-clockwise text-white"></i></button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div> 
+  
+
+  <script>
+    function increaseQuantity(btn) {
+      var input = btn.parentElement.querySelector('.quantity-input')
+      input.value = parseInt(input.value) + 1
+    }
+    function decreaseQuantity(btn) {
+      var input = btn.parentElement.querySelector('.quantity-input')
+      if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
 {% endblock %}

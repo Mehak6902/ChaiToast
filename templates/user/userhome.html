@@ -49,7 +49,7 @@
 
 
 <div class="container">
-    <!--CAROUSEL STARTS HERE-->
+    {% comment %} <!--CAROUSEL STARTS HERE-->
     <div class="container-fluid p-0" style="margin-top: 100px; margin-bottom: 100px;">
         <div id="carouselExampleCaptions" class="carousel slide" style="margin-left: 50px;margin-right: 50px; margin-top: 30px; margin-bottom: 40px;">
 
@@ -100,7 +100,7 @@
         </div>
     
     
-    </div>
+    </div> {% endcomment %}
     
     <!-- <div class="container">
         <div class="row justify-content-center mt-2 text-center">
@@ -117,7 +117,7 @@
         </div>
     </div> -->
     
-    <style>
+    {% comment %} <style>
          .carousel-item {
             position: relative;
             height: 100vh;
@@ -273,12 +273,14 @@ document.addEventListener('DOMContentLoaded', function () {
         ride: 'carousel'
     });
 });
-</script>
+</script> {% endcomment %}
+
+
 
     <!--CAROUSEL ENDS HERE-->
 
     
-    <!-- FEATURED ITEMS STARTS HERE -->
+<!-- FEATURED ITEMS STARTS HERE -->
 <div class="row justify-content-center text-center">
     <div class="col-md-8">
         <h1 class="mt-5">HERE ARE WHAT WE OFFER</h1>
@@ -291,8 +293,14 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h5 class="card-title">{{ product.name }}</h5>
                         <p class="card-text">{{ product.description }}</p>
                         <p class="card-text">Price: Rs.{{ product.price }}</p>
-                        <a href="#" class="btn btn-primary">ORDER NOW</a>
-                        <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-primary">Add to Cart</a>
+                        <a href="#" class="btn btn-primary mt-2">ORDER NOW</a>
+                        <a href="#" class="btn btn-primary mt-2 add-to-cart-btn">Add to Cart</a>
+                        <div class="quantity-controls mt-2" style="display: none;">
+                            <button class="btn btn-sm btn-secondary decrement-btn">-</button>
+                            <span class="quantity">1</span>
+                            <button class="btn btn-sm btn-secondary increment-btn">+</button>
+                        </div>
+                        <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-primary mt-2 go-to-cart-btn" style="display: none;">Go to Cart</a>
                     </div>
                 </div>
             </div>
@@ -301,6 +309,50 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
 </div>
 <!-- FEATURED ITEMS ENDS HERE -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+        addToCartButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                var cardBody = button.parentElement;
+                var quantityControls = cardBody.querySelector('.quantity-controls');
+                var goToCartBtn = cardBody.querySelector('.go-to-cart-btn');
+
+                quantityControls.style.display = 'block';
+                goToCartBtn.style.display = 'block';
+                button.style.display = 'none';
+
+                var cartIcon = document.getElementById('cart-icon'); // Get the cart icon
+
+                // Add a class to the cart icon
+                cartIcon.classList.add('item-added-to-cart');
+            });
+        });
+
+        var decrementButtons = document.querySelectorAll('.decrement-btn');
+        decrementButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var quantityElement = button.nextElementSibling;
+                var quantity = parseInt(quantityElement.textContent);
+                if (quantity > 1) {
+                    quantityElement.textContent = quantity - 1;
+                }
+            });
+        });
+
+        var incrementButtons = document.querySelectorAll('.increment-btn');
+        incrementButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var quantityElement = button.previousElementSibling;
+                var quantity = parseInt(quantityElement.textContent);
+                quantityElement.textContent = quantity + 1;
+            });
+        });
+    });
+</script>
 
 </div>
 {% endblock body %}

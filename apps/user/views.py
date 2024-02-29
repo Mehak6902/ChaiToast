@@ -3,10 +3,13 @@ from .models import Product, CartItem, contact_info
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
+
 
 
 
 # Create your views here.
+@login_required(login_url='loginuser')
 def home(request):
     return render(request, 'user/userhome.html')
 
