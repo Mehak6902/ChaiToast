@@ -1,6 +1,8 @@
 from django.urls import path,include
 from user import views
 from .views import  add_to_cart, view_cart, remove_from_cart
+
+
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -18,6 +20,9 @@ urlpatterns = [
     path('logoutuser',views.logoutuser,name ='logoutuser'),
     path('contact',views.contact,name='contact'),
     path('about/', views.about_us, name='about'),
+
+    
+
 
 
 

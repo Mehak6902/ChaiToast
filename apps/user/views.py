@@ -8,6 +8,9 @@ from django.contrib.auth.decorators import login_required
 
 
 
+
+
+
 # Create your views here.
 @login_required(login_url='loginuser')
 def home(request):
@@ -87,3 +90,5 @@ def contact(request):
 
 def about_us(request):
     return render(request, 'user/about.html')
+
+

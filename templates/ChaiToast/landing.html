@@ -1,0 +1,102 @@
+{% extends 'utils/base.html' %}
+{% load static %}
+{% block body %}
+  <!-- Header Start -->
+  {% include 'utils/navbar.html' %}
+  <!-- Header End -->
+
+  <!-- Hero Start -->
+  <section class="hero position-relative" id="#top">
+    <div class="hero_overlay"></div>
+    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" loading="lazy" class="hero_video">
+      <source src="{% static 'images/1-HeroChai-vid.mp4' %}" type="video/mp4" />
+    </video>
+
+    <div class="h-100 container-custom position-relative z-1">
+      <div class="d-flex h-100 align-items-center">
+        <div class="text-white h-100 w-50 d-flex justify-content-center align-items-center">
+          <div class="d-flex flex-column justify-content-center">
+            <h1 class="">User</h1>
+            <p>Enjoy the deliciousness made for you !</p>
+            <div>
+              <a href="/user/loginuser" class="btn btn-outline-light">Login</a>
+              <a href="/user/signupuser" class="btn btn-outline-light">Signup</a>
+            </div>
+          </div>
+        </div>
+        <div class="h-75 border"></div>
+        <div class="text-white h-100 w-50 d-flex justify-content-center align-items-center">
+          <div class="d-flex flex-column justify-content-center">
+            <h1 class="">Seller</h1>
+            <p>Create the deliciousness for others !</p>
+            <div>
+              <a href="/seller/loginseller" class="btn btn-outline-light">Login</a>
+              <a href="/seller/signupseller" class="btn btn-outline-light">Signup</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#scroll-down" class="hero_scroll-btn position-absolute bottom-0 start-50 translate-middle-x">Explore <i class="bi bi-arrow-down"></i></a>
+  </section>
+  <!-- Hero End -->
+  <!-- Section one start -->
+  <section id="scroll-down" class="container m-4">
+    <div class="row">
+      <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
+        <img src="{% static 'images/2-GharKiChai.jpeg' %}" alt="" class="rounded-4" style="width: 50%;" loading="lazy" />
+      </div>
+      <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+        <div class="steps_content_width">
+          <span>01</span>
+          <h1 class="h2 mb-4">Chai: A Cup of Warmth and Comfort</h1>
+          <p class="mb-4">Embrace the soothing blend of spices and warmth in every sip, a cozy refuge from the hustle of the day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section one end -->
+  <!-- Section two start -->
+  <section id="scroll-down" class="container m-4">
+    <div class="d-flex flex-row-reverse">
+      <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
+        <img src="{% static 'images/3-Bhaiya.jpeg' %}" alt="" class="rounded-4" style="width: 50%;" loading="lazy" />
+      </div>
+      <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+        <div class="" style="margin-left: 8rem;">
+          <span>02</span>
+          <h1 class="h2 mb-4">Chai: Life for some</h1>
+          <p class="mb-4">Elevating Tea Culture, Empowering Tea Sellers: Join Us in Nurturing Communities, One Sip at a Time!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section two end -->
+  <!-- Section Three start -->
+  <section id="scroll-down" class="container m-4">
+    <div class="row">
+      <div class="col-12 col-sm-6 d-md-flex justify-content-md-center">
+        <img src="{% static 'images/3-Chai1.jpeg' %}" alt="" class="rounded-4" style="width: 50%;" loading="lazy" />
+      </div>
+      <div class="col-12 col-sm-6 align-self-center justify-content-md-center">
+        <div class="steps_content_width">
+          <span>03</span>
+          <h1 class="h2 mb-4">Chai: A Tradition</h1>
+          <p class="mb-4">Steeped in Tradition, Served with Heart: Welcome to Our Tea Haven!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section Three end -->
+  <div class="d-flex justify-content-center ">
+    <a href="#top" class="btn btn-lg btn-outline-dark mt-4 ">Join Now</a>
+  </div>
+
+  <!--Footer Starts-->
+  {% include "utils/footer.html" %}
+  <!--Footer Ends-->
+  
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{% static 'css/landing.css' %}" />
+{% endblock %}

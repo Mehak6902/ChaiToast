@@ -1,0 +1,87 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); */
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  :root {
+    --primary-color: #0a1118;
+    --primary-color-highlight: #233d54;
+    --bs-body-bg: #f9f7f3;
+    --bs-body-font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* Custom Container */
+  .container-custom { 
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+  }
+  
+  
+  /* Header Section*/
+  .header {
+    z-index: 2;
+  }
+  
+  /* Hero Section */
+  .hero {
+    overflow: hidden;
+    height: 100vh;
+    background-color: var(--primary-color);
+  
+  }
+  
+  .hero_video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  
+  .hero_overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--primary-color);
+    opacity: 0.5;
+    z-index: 1;
+  }
+  
+  .hero_scroll-btn {
+    z-index: 3;
+    color: var(--bs-light);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero_scroll-btn:hover {
+    color: var(--bs-body-bg);
+    opacity: 0.75;
+  }
+  
+  .hero_scroll-btn .bi {
+    transition-delay: 500ms;
+    animation: bounce 0.7s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    from {
+      transform: translateY(0px);
+    } to {
+      transform: translateY(-5px);
+    }
+  }
